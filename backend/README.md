@@ -20,3 +20,44 @@ Video instructions: https://youtu.be/PPxenu7IjGM
 `npm run ib` or `pnpm ib` will initialize the backend by running migrations and seed the database with required system data.
 `npm run dev` or `pnpm dev` will start the backend (and admin dashboard frontend on `localhost:9000/app`) in development mode.
 `pnpm build && pnpm start` will compile the project and run from compiled source. This can be useful for reproducing issues on your cloud instance.
+
+
+  ...((SENDGRID_API_KEY && SENDGRID_FROM_EMAIL) ||
+    (RESEND_API_KEY && RESEND_FROM_EMAIL)
+      ? [
+          {
+            key: Modules.NOTIFICATION,
+            resolve: "@medusajs/notification",
+            options: {
+              providers: [
+                ...(SENDGRID_API_KEY && SENDGRID_FROM_EMAIL
+                  ? [
+                      {
+                        resolve: "@medusajs/notification-sendgrid",
+                        id: "sendgrid",
+                        options: {
+                          channels: ["email"],
+                          api_key: SENDGRID_API_KEY,
+                          from: SENDGRID_FROM_EMAIL,
+                        },
+                      },
+                    ]
+                  : []),
+                ...(RESEND_API_KEY && RESEND_FROM_EMAIL
+                  ? [
+                      {
+                        resolve: "./src/modules/resend",
+                        id: "resend",
+                        options: {
+                          channels: ["email"],
+                          api_key: RESEND_API_KEY,
+                          from: RESEND_FROM_EMAIL,
+                        },
+                      },
+                    ]
+                  : []),
+              ],
+            },
+          },
+        ]
+      : []),
