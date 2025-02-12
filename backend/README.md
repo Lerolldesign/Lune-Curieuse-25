@@ -1,14 +1,16 @@
 ### local setup
+
 Video instructions: https://youtu.be/PPxenu7IjGM
 
 - `cd /backend`
 - `pnpm install` or `npm i`
-- Rename `.env.template` ->  `.env`
+- Rename `.env.template` -> `.env`
 - To connect to your online database from your local machine, copy the `DATABASE_URL` value auto-generated on Railway and add it to your `.env` file.
   - If connecting to a new database, for example a local one, run `pnpm ib` or `npm run ib` to seed the database.
 - `pnpm dev` or `npm run dev`
 
 ### requirements
+
 - **postgres database** (Automatic setup when using the Railway template)
 - **redis** (Automatic setup when using the Railway template) - fallback to simulated redis.
 - **MinIO storage** (Automatic setup when using the Railway template) - fallback to local storage.
@@ -21,43 +23,46 @@ Video instructions: https://youtu.be/PPxenu7IjGM
 `npm run dev` or `pnpm dev` will start the backend (and admin dashboard frontend on `localhost:9000/app`) in development mode.
 `pnpm build && pnpm start` will compile the project and run from compiled source. This can be useful for reproducing issues on your cloud instance.
 
+...((SENDGRID_API_KEY && SENDGRID_FROM_EMAIL) ||
+(RESEND_API_KEY && RESEND_FROM_EMAIL)
+? [
+{
+key: Modules.NOTIFICATION,
+resolve: "@medusajs/notification",
+options: {
+providers: [
+...(SENDGRID_API_KEY && SENDGRID_FROM_EMAIL
+? [
+{
+resolve: "@medusajs/notification-sendgrid",
+id: "sendgrid",
+options: {
+channels: ["email"],
+api_key: SENDGRID_API_KEY,
+from: SENDGRID_FROM_EMAIL,
+},
+},
+]
+: []),
+...(RESEND_API_KEY && RESEND_FROM_EMAIL
+? [
+{
+resolve: "./src/modules/resend",
+id: "resend",
+options: {
+channels: ["email"],
+api_key: RESEND_API_KEY,
+from: RESEND_FROM_EMAIL,
+},
+},
+]
+: []),
+],
+},
+},
+]
+: []),
 
-  ...((SENDGRID_API_KEY && SENDGRID_FROM_EMAIL) ||
-    (RESEND_API_KEY && RESEND_FROM_EMAIL)
-      ? [
-          {
-            key: Modules.NOTIFICATION,
-            resolve: "@medusajs/notification",
-            options: {
-              providers: [
-                ...(SENDGRID_API_KEY && SENDGRID_FROM_EMAIL
-                  ? [
-                      {
-                        resolve: "@medusajs/notification-sendgrid",
-                        id: "sendgrid",
-                        options: {
-                          channels: ["email"],
-                          api_key: SENDGRID_API_KEY,
-                          from: SENDGRID_FROM_EMAIL,
-                        },
-                      },
-                    ]
-                  : []),
-                ...(RESEND_API_KEY && RESEND_FROM_EMAIL
-                  ? [
-                      {
-                        resolve: "./src/modules/resend",
-                        id: "resend",
-                        options: {
-                          channels: ["email"],
-                          api_key: RESEND_API_KEY,
-                          from: RESEND_FROM_EMAIL,
-                        },
-                      },
-                    ]
-                  : []),
-              ],
-            },
-          },
-        ]
-      : []),
+      /order_01JKWPHF0CV1C81ER6W750B2CT
+
+https://backend-production-2e30.up.railway.app/store/email/order-confirmation/01JKWPHF0CV1C81ER6W750B2CT

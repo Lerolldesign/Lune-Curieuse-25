@@ -1,5 +1,6 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { Modules } from "@medusajs/framework/utils";
+import AdminOrderNotification from "../../_templates/admin-order-notification";
 import OrderConfirmation from "../../_templates/order-confirmation";
 import { sendEmail } from "../../lib";
 
@@ -27,10 +28,18 @@ export async function POST(req: MedusaRequest, res: MedusaResponse) {
   });
 
   try {
+    // Send email to the customer
     await sendEmail({
       to: order.email,
       subject: "Thank you for your order",
       react: <OrderConfirmation order={order} />,
+    });
+
+    // Send email to the admin
+    await sendEmail({
+      to: "commande@lalunecurieuse.com", // Replace with the admin's email address
+      subject: "New Order Received",
+      react: <AdminOrderNotification order={order} />,
     });
 
     res.json({ message: "Email sent!" });
