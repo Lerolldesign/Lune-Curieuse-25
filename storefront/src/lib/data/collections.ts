@@ -32,8 +32,8 @@ export const getCollectionByHandle = cache(async function (
 export const getCollectionsWithProducts = cache(
   async (countryCode: string): Promise<HttpTypes.StoreCollection[] | null> => {
     const { collections } = await getCollectionsList(0, 3)
-
-    if (!collections) {
+    if (!collections || collections.length === 0) {
+      console.warn("No collections found.")
       return null
     }
 

@@ -326,3 +326,4 @@ npm create sanity@latest -- --project p2ipv59c --dataset production --template c
 npm create sanity@latest -- --project p2ipv59c --dataset production --template clean
 
 conflit ok 18 dec
+pnpm self-update
