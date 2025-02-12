@@ -220,7 +220,7 @@ export async function initiatePaymentSession(
   }
 ) {
   return sdk.store.payment
-    .initiatePaymentSession(cart, data, {}, getAuthHeaders())
+    .initiatePaymentSession(cart as any, data, {}, getAuthHeaders())
     .then((resp) => {
       revalidateTag("cart")
       return resp

@@ -1,9 +1,10 @@
 "use client"
 
 import { Heading, Text, clx } from "@medusajs/ui"
+import Link from "next/link"
 
-import PaymentButton from "../payment-button"
 import { useSearchParams } from "next/navigation"
+import PaymentButton from "../payment-button"
 
 const Review = ({ cart }: { cart: any }) => {
   const searchParams = useSearchParams()
@@ -19,18 +20,18 @@ const Review = ({ cart }: { cart: any }) => {
     (cart.payment_collection || paidByGiftcard)
 
   return (
-    <div className="bg-white">
+    <div className="bg-creamy">
       <div className="flex flex-row items-center justify-between mb-6">
         <Heading
           level="h2"
           className={clx(
-            "flex flex-row text-3xl-regular gap-x-2 items-baseline",
+            "flex flex-row text-xl md:text-2xl text-lune gap-x-2 items-baseline",
             {
               "opacity-50 pointer-events-none select-none": !isOpen,
             }
           )}
         >
-          Review
+          Récapitulatif
         </Heading>
       </div>
       {isOpen && previousStepsCompleted && (
@@ -38,10 +39,15 @@ const Review = ({ cart }: { cart: any }) => {
           <div className="flex items-start gap-x-1 w-full mb-6">
             <div className="w-full">
               <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                By clicking the Place Order button, you confirm that you have
-                read, understand and accept our Terms of Use, Terms of Sale and
-                Returns Policy and acknowledge that you have read Medusa
-                Store&apos;s Privacy Policy.
+                En cliquant sur le bouton Passer la commande, vous confirmez que
+                vous avez lu, compris et accepté nos
+                <Link
+                  className="text-lune pl-1 hover:text-neutral-500"
+                  href="/documents/cgv"
+                >
+                  Conditions Générale de ventes
+                </Link>{" "}
+                et Politique de retour.
               </Text>
             </div>
           </div>

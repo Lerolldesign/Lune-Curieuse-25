@@ -15,7 +15,10 @@ export const getCollectionsList = cache(async function (
 ): Promise<{ collections: HttpTypes.StoreCollection[]; count: number }> {
   return sdk.store.collection
     .list({ limit, offset: 0 }, { next: { tags: ["collections"] } })
-    .then(({ collections }) => ({ collections, count: collections.length }))
+    .then(({ collections }) => ({
+      collections: collections as HttpTypes.StoreCollection[],
+      count: collections.length,
+    }))
 })
 
 export const getCollectionByHandle = cache(async function (
@@ -23,7 +26,7 @@ export const getCollectionByHandle = cache(async function (
 ): Promise<HttpTypes.StoreCollection> {
   return sdk.store.collection
     .list({ handle }, { next: { tags: ["collections"] } })
-    .then(({ collections }) => collections[0])
+    .then(({ collections }) => collections[0] as HttpTypes.StoreCollection)
 })
 
 export const getCollectionsWithProducts = cache(

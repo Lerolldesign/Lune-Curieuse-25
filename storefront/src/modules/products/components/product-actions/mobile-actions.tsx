@@ -7,8 +7,8 @@ import ChevronDown from "@modules/common/icons/chevron-down"
 import X from "@modules/common/icons/x"
 
 import { getProductPrice } from "@lib/util/get-product-price"
-import OptionSelect from "./option-select"
 import { HttpTypes } from "@medusajs/types"
+import OptionSelect from "./option-select"
 
 type MobileActionsProps = {
   product: HttpTypes.StoreProduct
@@ -52,7 +52,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
   return (
     <>
       <div
-        className={clx("lg:hidden inset-x-0 bottom-0 fixed", {
+        className={clx("lg:hidden z-50 inset-x-0 bottom-0 fixed", {
           "pointer-events-none": !show,
         })}
       >
@@ -99,14 +99,12 @@ const MobileActions: React.FC<MobileActionsProps> = ({
               <Button
                 onClick={open}
                 variant="secondary"
-                className="w-full"
+                className="w-full rounded-full"
                 data-testid="mobile-actions-button"
               >
-                <div className="flex items-center justify-between w-full">
+                <div className="flex items-center justify-between w-full rounded-full">
                   <span>
-                    {variant
-                      ? Object.values(options).join(" / ")
-                      : "Select Options"}
+                    {variant ? Object.values(options).join(" / ") : "Options"}
                   </span>
                   <ChevronDown />
                 </div>
@@ -114,15 +112,22 @@ const MobileActions: React.FC<MobileActionsProps> = ({
               <Button
                 onClick={handleAddToCart}
                 disabled={!inStock || !variant}
-                className="w-full"
+                className={`rounded-full px-5 py-2 noise font-bold text-[.75rem] transition-all duration-400 
+                  ${
+                    !inStock
+                      ? "!bg-lune !text-white"
+                      : "bg-[#121212] text-creamy"
+                  } 
+                  hover:translate-y-[8px] hover:text-creamy hover:rounded-full hover:bg-lune active:translate-x-[0px] 
+                  active:translate-y-[0px]`}
                 isLoading={isAdding}
                 data-testid="mobile-cart-button"
               >
                 {!variant
-                  ? "Select variant"
+                  ? "Choisir une option"
                   : !inStock
-                  ? "Out of stock"
-                  : "Add to cart"}
+                  ? "Rupture de stock"
+                  : "Ajouter au panier"}
               </Button>
             </div>
           </div>

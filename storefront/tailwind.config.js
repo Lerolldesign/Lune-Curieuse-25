@@ -21,6 +21,11 @@ module.exports = {
         padding: "padding-top padding-right padding-bottom padding-left",
       },
       colors: {
+        lune: "#C87E53",
+        creamy: "#fcfbf4",
+        browny: "#2d2c29",
+        vanilla: "#fbfbfb",
+        dark: "#111111",
         grey: {
           0: "#FFFFFF",
           5: "#F9FAFB",
@@ -69,6 +74,8 @@ module.exports = {
           "Ubuntu",
           "sans-serif",
         ],
+        lune: ["var(--font-lune)"],
+        inter: ["var(--font-inter)"],
       },
       keyframes: {
         ring: {

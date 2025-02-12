@@ -39,12 +39,22 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           <Label className="mb-2 txt-compact-medium-plus">{topLabel}</Label>
         )}
         <div className="flex relative z-0 w-full txt-compact-medium">
+          <style jsx global>{`
+            input:-webkit-autofill,
+            input:-webkit-autofill:hover,
+            input:-webkit-autofill:focus {
+              -webkit-box-shadow: 0 0 0 30px #fcfbf4 inset !important;
+              -webkit-text-fill-color: inherit !important;
+              background-color: #fcfbf4 !important;
+              border-color: #eee !important;
+            }
+          `}</style>
           <input
             type={inputType}
             name={name}
             placeholder=" "
             required={required}
-            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 bg-ui-bg-field border rounded-md appearance-none focus:outline-none focus:ring-0 focus:shadow-borders-interactive-with-active border-ui-border-base hover:bg-ui-bg-field-hover"
+            className="pt-4 pb-1 block w-full h-11 px-4 mt-0 border rounded-full bg-creamy appearance-none focus:outline-none focus:ring-0 focus:border-lune hover:bg-ui-bg-field-hover"
             {...props}
             ref={inputRef}
           />

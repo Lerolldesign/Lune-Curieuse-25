@@ -1,15 +1,15 @@
 "use client"
 
+import { isManual, isPaypal, isStripe } from "@lib/constants"
+import { placeOrder } from "@lib/data/cart"
+import { HttpTypes } from "@medusajs/types"
 import { Button } from "@medusajs/ui"
+import Spinner from "@modules/common/icons/spinner"
 import { OnApproveActions, OnApproveData } from "@paypal/paypal-js"
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js"
 import { useElements, useStripe } from "@stripe/react-stripe-js"
 import React, { useState } from "react"
 import ErrorMessage from "../error-message"
-import Spinner from "@modules/common/icons/spinner"
-import { placeOrder } from "@lib/data/cart"
-import { HttpTypes } from "@medusajs/types"
-import { isManual, isPaypal, isStripe } from "@lib/constants"
 
 type PaymentButtonProps = {
   cart: HttpTypes.StoreCart
@@ -77,7 +77,7 @@ const GiftCardPaymentButton = () => {
       isLoading={submitting}
       data-testid="submit-order-button"
     >
-      Place order
+      Passer la commande
     </Button>
   )
 }
@@ -178,8 +178,9 @@ const StripePaymentButton = ({
         size="large"
         isLoading={submitting}
         data-testid={dataTestId}
+        className="rounded-full hover:scale-105 transition-transform duration-300   "
       >
-        Place order
+        Passer la commande
       </Button>
       <ErrorMessage
         error={errorMessage}
@@ -287,8 +288,9 @@ const ManualTestPaymentButton = ({ notReady }: { notReady: boolean }) => {
         onClick={handlePayment}
         size="large"
         data-testid="submit-order-button"
+        className="rounded-full hover:scale-105 transition-transform duration-300 hover:bg-vanilla hover:text-lune"
       >
-        Place order
+        Passer la commande
       </Button>
       <ErrorMessage
         error={errorMessage}

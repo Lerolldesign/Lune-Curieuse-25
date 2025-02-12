@@ -1,7 +1,6 @@
-import { ArrowUpRightMini } from "@medusajs/icons"
-import { Text } from "@medusajs/ui"
+import Button from "@modules/elements/button"
+import Ornements from "@modules/layout/templates/ornements"
 import { Metadata } from "next"
-import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "404",
@@ -11,20 +10,18 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <div className="flex flex-col gap-4 items-center justify-center min-h-[calc(100vh-64px)]">
-      <h1 className="text-2xl-semi text-ui-fg-base">Page not found</h1>
-      <p className="text-small-regular text-ui-fg-base">
-        The page you tried to access does not exist.
+      <Ornements />
+      <h1 className="text-[7rem] medium:text-[9rem] xlarge:text-[11rem] 2xlarge:text-[15rem] font-lune text-lune">
+        404
+      </h1>
+      <p className="text-[.9rem] lg:text-[1.1rem] pb-10">
+        Cette page n&apos;exite plus ou á été déplaçée
       </p>
-      <Link
-        className="flex gap-x-1 items-center group"
-        href="/"
-      >
-        <Text className="text-ui-fg-interactive">Go to frontpage</Text>
-        <ArrowUpRightMini
-          className="group-hover:rotate-45 ease-in-out duration-150"
-          color="var(--fg-interactive)"
-        />
-      </Link>
+      <span className="px-10">
+        <Button href="/" variant="primary">
+          Revenir á l&apos;accueil +
+        </Button>
+      </span>
     </div>
   )
 }

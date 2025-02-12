@@ -11,8 +11,11 @@ type ShippingDetailsProps = {
 const ShippingDetails = ({ order }: ShippingDetailsProps) => {
   return (
     <div>
-      <Heading level="h2" className="flex flex-row text-3xl-regular my-6">
-        Delivery
+      <Heading
+        level="h2"
+        className="flex flex-row md:text-2xl text-xl text-lune my-6"
+      >
+        Livraison
       </Heading>
       <div className="flex items-start gap-x-8">
         <div
@@ -20,7 +23,7 @@ const ShippingDetails = ({ order }: ShippingDetailsProps) => {
           data-testid="shipping-address-summary"
         >
           <Text className="txt-medium-plus text-ui-fg-base mb-1">
-            Shipping Address
+            Adresse de livraison
           </Text>
           <Text className="txt-medium text-ui-fg-subtle">
             {order.shipping_address?.first_name}{" "}

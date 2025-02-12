@@ -1,11 +1,11 @@
 import { Text } from "@medusajs/ui"
 
+import { getProductsById } from "@lib/data/products"
 import { getProductPrice } from "@lib/util/get-product-price"
+import { HttpTypes } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Thumbnail from "../thumbnail"
 import PreviewPrice from "./price"
-import { getProductsById } from "@lib/data/products"
-import { HttpTypes } from "@medusajs/types"
 
 export default async function ProductPreview({
   product,
@@ -37,12 +37,16 @@ export default async function ProductPreview({
           images={product.images}
           size="full"
           isFeatured={isFeatured}
+          className="md:h-[50vh] xl:h-[60vh] 2xl:h-[65vh] rounded-full hover:scale-105 transition-all duration-500 cursor-pointer "
         />
         <div className="flex txt-compact-medium mt-4 justify-between">
-          <Text className="text-ui-fg-subtle" data-testid="product-title">
+          <Text
+            className="text-lg/[1.25rem] font-[500] md:font-normal md:text-2xl lg:text-3xl md:mt-8  font-lune text-lune hover:text-neutral-700 hover:translate-y-1 duration-200 ease-in-out transition-all"
+            data-testid="product-title"
+          >
             {product.title}
           </Text>
-          <div className="flex items-center gap-x-2">
+          <div className="flex items-center gap-x-2 md:mt-14 md:mr-10">
             {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
           </div>
         </div>

@@ -1,12 +1,11 @@
 import { RadioGroup } from "@headlessui/react"
-import { InformationCircleSolid } from "@medusajs/icons"
-import { Text, Tooltip, clx } from "@medusajs/ui"
+import { Text, clx } from "@medusajs/ui"
 import React from "react"
 
 import Radio from "@modules/common/components/radio"
 
-import PaymentTest from "../payment-test"
 import { isManual } from "@lib/constants"
+import PaymentTest from "../payment-test"
 
 type PaymentContainerProps = {
   paymentProviderId: string
@@ -30,10 +29,9 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
         value={paymentProviderId}
         disabled={disabled}
         className={clx(
-          "flex flex-col gap-y-2 text-small-regular cursor-pointer py-4 border rounded-rounded px-8 mb-2 hover:shadow-borders-interactive-with-active",
+          "flex flex-col gap-y-2 text-small-regular cursor-pointer py-4 border rounded-full px-8 mb-2  transform transition-transform duration-200 hover:scale-105",
           {
-            "border-ui-border-interactive":
-              selectedPaymentOptionId === paymentProviderId,
+            "border-lune": selectedPaymentOptionId === paymentProviderId,
           }
         )}
       >

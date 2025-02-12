@@ -24,6 +24,7 @@ type SearchBoxProps = {
     inputRef: RefObject<HTMLInputElement>
     onChange: (event: ChangeEvent<HTMLInputElement>) => void
     onReset: () => void
+    onSubmit: () => void
     placeholder: string
   }) => React.ReactNode
   placeholder?: string
@@ -36,7 +37,9 @@ const SearchBoxWrapper = ({
 }: SearchBoxProps) => {
   const { query, refine } = useSearchBox(rest)
   const [value, setValue] = useState(query)
-  const inputRef = useRef<HTMLInputElement>(null)
+  const inputRef = useRef<HTMLInputElement>(
+    null
+  ) as React.RefObject<HTMLInputElement>
 
   const router = useRouter()
 
@@ -58,18 +61,12 @@ const SearchBoxWrapper = ({
     if (query !== value) {
       refine(value)
     }
-    // We don't want to track when the InstantSearch query changes.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value])
 
   useEffect(() => {
-    // We bypass the state update if the input is focused to avoid concurrent
-    // updates when typing.
     if (document.activeElement !== inputRef.current && query !== value) {
       setValue(query)
     }
-    // We don't want to track when the React state value changes.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query])
 
   useEffect(() => {
@@ -87,7 +84,9 @@ const SearchBoxWrapper = ({
     placeholder,
   }
 
-  return children(state) as React.ReactElement
+  return children(state)
 }
+
+SearchBoxWrapper.displayName = "SearchBoxWrapper"
 
 export default SearchBoxWrapper
