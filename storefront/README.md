@@ -328,19 +328,17 @@ npm create sanity@latest -- --project p2ipv59c --dataset production --template c
 conflit ok 18 dec
 pnpm self-update
 
-
 ├─┬ sanity 3.75.0
 │ └─┬ @sanity/cli 3.75.0
-│   └─┬ @sanity/template-validator 2.4.0
-│     └─┬ @sanity/pkg-utils 6.13.4
-│       └── ✕ unmet peer typescript@"5.4.x || 5.5.x || 5.6.x || 5.7.x": found 5.3.2
+│ └─┬ @sanity/template-validator 2.4.0
+│ └─┬ @sanity/pkg-utils 6.13.4
+│ └── ✕ unmet peer typescript@"5.4.x || 5.5.x || 5.6.x || 5.7.x": found 5.3.2
 PS F:\LEROLLDESIGN\000_CLIENTS_PROJECTS\LALUNECURIEUSE\ECOMERCE\2025\Lune-Curieuse-25\storefront> pnpm install
  WARN  deprecated eslint@8.10.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
  WARN  deprecated @studio-freight/lenis@1.0.42: The '@studio-freight/lenis' package has been renamed to 'lenis'. Please update your dependencies: npm install lenis and visit the documentation: https://www.npmjs.com/package/lenis
  WARN  deprecated @studio-freight/hamo@0.6.33: The '@studio-freight/hamo' package has been renamed to 'hamo'. Please update your dependencies: npm install hamo and visit the documentation: https://www.npmjs.com/package/hamo
  WARN  deprecated @studio-freight/react-lenis@0.0.47: The '@studio-freight/react-lenis' package has been renamed to 'lenis'. Please update your dependencies: npm install lenis and visit the documentation: https://www.npmjs.com/package/lenis
  WARN  deprecated react-instantsearch-hooks-web@6.47.3: package has moved to react-instantsearch
-
 
 pnpm remove react-instantsearch-hooks-web
 pnpm add react-instantsearch@latest
@@ -352,3 +350,5 @@ tsx
 Copier
 Modifier
 import { InstantSearch } from "react-instantsearch";
+
+choooooooo
