@@ -76,5 +76,6 @@
     "overrides": {
       "sass": "^1.70.0"
     }
-  }
+  },
+  "packageManager": "pnpm@8.15.5"
 }
