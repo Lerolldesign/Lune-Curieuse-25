@@ -10,6 +10,8 @@ type RelatedProductsProps = {
 
 type StoreProductParamsWithTags = HttpTypes.StoreProductParams & {
   tags?: string[]
+  collection_id?: string // Change to string
+  is_giftcard?: boolean
 }
 
 type StoreProductWithTags = HttpTypes.StoreProduct & {
@@ -32,7 +34,7 @@ export default async function RelatedProducts({
     queryParams.region_id = region.id
   }
   if (product.collection_id) {
-    queryParams.collection_id = [product.collection_id]
+    queryParams.collection_id = product.collection_id // Assign directly
   }
   const productWithTags = product as StoreProductWithTags
   if (productWithTags.tags) {
@@ -43,7 +45,7 @@ export default async function RelatedProducts({
   queryParams.is_giftcard = false
 
   const products = await getProductsList({
-    queryParams,
+    queryParams: queryParams as HttpTypes.StoreProductParams, // Cast to expected type
     countryCode,
   }).then(({ response }) => {
     return response.products.filter(
