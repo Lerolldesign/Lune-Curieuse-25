@@ -40,7 +40,7 @@ export default function Layout({
             extend: {
               colors: {
                 background: "#FFF6E6",
-                accent: "#FF5227",
+                accent: "#C87E53",
               },
             },
           },

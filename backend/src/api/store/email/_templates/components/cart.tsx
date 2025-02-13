@@ -23,7 +23,7 @@ export default function Cart({
     <Section className="mb-10">
       <Section className="mb-4">
         <Text className="w-fit uppercase font-bold" style={bodySmall}>
-          Order summary
+          Résumé
         </Text>
       </Section>
       {items.map((item) => {
@@ -33,9 +33,9 @@ export default function Cart({
       })}
       {details && (
         <Section className="max-w-[365px]" align="right">
-          <CheckoutLine title="Subtotal" price={details.subtotal} />
-          <CheckoutLine title="Order discount" price={details.discount} />
-          <CheckoutLine title="Shipping" price={details.shipping} />
+          <CheckoutLine title="Total" price={details.subtotal} />
+          <CheckoutLine title="Réduction" price={details.discount} />
+          <CheckoutLine title="Livraison" price={details.shipping} />
           <CheckoutLine title="Taxes" price={details.taxes} />
           <Hr className="h-px bg-accent mb-4" />
           <CheckoutLine title="Total" price={details.total} />

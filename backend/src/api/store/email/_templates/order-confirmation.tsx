@@ -17,7 +17,7 @@ export default function OrderConfirmation({ order }: { order: OrderDTO }) {
   };
 
   return (
-    <Layout preview="Order confirmation">
+    <Layout preview="Confirmation de commande">
       <Section className="w-full px-5 mt-5 mb-12" align="left">
         <Img
           className="max-w-[291px] mb-20"

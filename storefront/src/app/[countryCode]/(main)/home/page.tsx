@@ -1,8 +1,8 @@
 import { Metadata } from "next"
 
 //import FeaturedProducts from "@modules/home/components/featured-products"
-//import { getCollectionsWithProducts } from "@lib/data/collections"
-//import { getRegion } from "@lib/data/regions"
+import { getCollectionsWithProducts } from "@lib/data/collections"
+import { getRegion } from "@lib/data/regions"
 import CookieBot from "@modules/elements/cookiebot"
 import Banner from "@modules/home/components/hero/banner"
 import HomeSectionEnjoliver from "@modules/home/components/sections/enjoliver"
@@ -16,7 +16,20 @@ export const metadata: Metadata = {
     "Atelier artisanal de tapisserie d’ameublement. Création de décorations textiles sur mesure et restauration de sièges. Dijon, Gray, Langres",
 }
 
-export default function HomePage() {
+export default async function Home(props: {
+  params: Promise<{ countryCode: string }>
+}) {
+  const params = await props.params
+
+  const { countryCode } = params
+
+  const collections = await getCollectionsWithProducts(countryCode)
+  const region = await getRegion(countryCode)
+
+  if (!collections || !region) {
+    return null
+  }
+
   return (
     <div className="bg-black noise">
       <Banner />
@@ -25,10 +38,10 @@ export default function HomePage() {
       <HomeSectionEnjoliver />
       <HomeSectionIntroText />
       {/**    <div className="py-12">
-      <ul className="flex flex-col gap-x-6">
-        <FeaturedProducts collections={collections} region={region} />
-      </ul>
-    </div>*/}
+        <ul className="flex flex-col gap-x-6">
+          <FeaturedProducts collections={collections} region={region} />
+        </ul>
+      </div>*/}
       <CookieBot />
     </div>
   )

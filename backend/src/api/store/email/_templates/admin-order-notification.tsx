@@ -17,7 +17,7 @@ export default function AdminOrderNotification({ order }: { order: OrderDTO }) {
     });
   };
   return (
-    <Layout preview="New Order Notification">
+    <Layout preview="Félicitations madame Rondot">
       <Section className="w-full px-5 mt-5 mb-12" align="left">
         <Img
           className="max-w-[291px] mb-20"

@@ -5,7 +5,7 @@ import { title } from "./components/style";
 
 export default function ShippingConfirmation() {
   return (
-    <Layout preview="Shipping confirmation">
+    <Layout preview="Confirmation d'expédition">
       <Section className="w-full max-w-[565px] mb-16 px-5" align="left">
         <Img
           className="max-w-[291px]"

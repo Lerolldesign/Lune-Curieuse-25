@@ -8,7 +8,7 @@ export default function CheckoutLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="w-full bg-creamy relative small:min-h-screen">
+    <div className="w-full bg-creamy relative small:min-h-screen noise">
       <div className="h-16 bg-creamy border-b ">
         <nav className="flex h-full items-center content-container justify-between">
           <LocalizedClientLink

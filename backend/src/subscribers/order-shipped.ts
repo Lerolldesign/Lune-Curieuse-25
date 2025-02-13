@@ -25,5 +25,5 @@ export default async function orderShippedHandler({
 }
 
 export const config: SubscriberConfig = {
-  event: ["order.fulfillment_created"],
+  event: ["order.shipment_created"],
 };
