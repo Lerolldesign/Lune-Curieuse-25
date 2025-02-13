@@ -45,6 +45,9 @@ importers:
       '@paypal/react-paypal-js':
         specifier: ^7.8.1
         version: 7.8.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@portabletext/react':
+        specifier: ^3.2.1
+        version: 3.2.1(react@18.3.1)
       '@radix-ui/react-accordion':
         specifier: ^1.2.1
         version: 1.2.3(@types/react-dom@19.0.2(@types/react@19.0.1))(@types/react@19.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
