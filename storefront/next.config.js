@@ -49,7 +49,6 @@ const nextConfig = {
         protocol: "https",
         hostname: "bucket-production-b812.up.railway.app",
       },
-
       {
         protocol: "https",
         hostname: "medusa-server-testing.s3.us-east-1.amazonaws.com",
@@ -66,6 +65,30 @@ const nextConfig = {
   },
   serverRuntimeConfig: {
     port: process.env.PORT || 3000,
+  },
+  webpack: (config, { isServer }) => {
+    // Find the existing rule that handles SCSS files
+    const scssRule = config.module.rules.find(
+      (rule) => rule.test && rule.test.toString().includes("scss")
+    )
+
+    if (scssRule) {
+      // Update the sass-loader options to use Dart Sass
+      scssRule.use = scssRule.use.map((useEntry) => {
+        if (typeof useEntry === "object" && useEntry.loader === "sass-loader") {
+          return {
+            ...useEntry,
+            options: {
+              ...useEntry.options,
+              implementation: require("sass"),
+            },
+          }
+        }
+        return useEntry
+      })
+    }
+
+    return config
   },
 }
 
