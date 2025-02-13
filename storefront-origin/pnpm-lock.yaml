@@ -84,7 +84,7 @@ importers:
         specifier: ^4.0.1
         version: 4.0.1(tailwindcss@4.0.6)
       webpack:
-        specifier: ^5
+        specifier: ^5.97.1
         version: 5.97.1
     devDependencies:
       '@babel/core':
@@ -3629,8 +3629,8 @@ packages:
       uglify-js:
         optional: true
 
-  terser@5.38.2:
-    resolution: {integrity: sha512-w8CXxxbFA5zfNsR/i8HZq5bvn18AK0O9jj7hyo1YqkovLxEFa0uP0LCVGZRqiRaKRFxXhELBp8SteeAjEnfeJg==}
+  terser@5.39.0:
+    resolution: {integrity: sha512-LBAhFyLho16harJoWMg/nZsQYgTrg5jXOn2nCYjRUcZZEdE3qa2zb8QEDRUGVZBW4rlazf2fxkg8tztybTaqWw==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -8132,10 +8132,10 @@ snapshots:
       jest-worker: 27.5.1
       schema-utils: 4.3.0
       serialize-javascript: 6.0.2
-      terser: 5.38.2
+      terser: 5.39.0
       webpack: 5.97.1
 
-  terser@5.38.2:
+  terser@5.39.0:
     dependencies:
       '@jridgewell/source-map': 0.3.6
       acorn: 8.14.0
