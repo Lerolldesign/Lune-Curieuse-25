@@ -72,6 +72,9 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "sharp"
-    ]
+    ],
+    "overrides": {
+      "sass": "^1.70.0"
+    }
   }
 }
