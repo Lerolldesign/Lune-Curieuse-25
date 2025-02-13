@@ -1,9 +1,19 @@
 import { sdk } from "@lib/config"
 import { sortProducts } from "@lib/util/sort-products"
-import { HttpTypes } from "@medusajs/types"
+import { HttpTypes, StoreProductParams } from "@medusajs/types"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 import { cache } from "react"
 import { getRegion } from "./regions"
+
+// Ajout du type personnalisé
+type ExtendedStoreProductParams = StoreProductParams & {
+  collection_id?: string[]
+}
+
+export interface FindParams {
+  // other properties
+  collection_id?: string
+}
 
 export const getProductsById = cache(async function ({
   ids,
@@ -46,7 +56,7 @@ export const getProductsList = cache(async function ({
   countryCode,
 }: {
   pageParam?: number
-  queryParams?: HttpTypes.FindParams & HttpTypes.StoreProductParams
+  queryParams?: FindParams & ExtendedStoreProductParams
   countryCode: string
 }): Promise<{
   response: { products: HttpTypes.StoreProduct[]; count: number }
