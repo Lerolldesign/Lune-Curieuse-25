@@ -8,7 +8,8 @@ overrides:
   webpack: ^5
   '@types/react': 19.0.1
   '@types/react-dom': 19.0.2
-  sass: ^1.70.0
+  sass: ^1.84.0
+  tailwindcss: 3.4.17
 
 importers:
 
@@ -162,7 +163,7 @@ importers:
         specifier: ^3.67.1
         version: 3.75.0(@emotion/is-prop-valid@1.2.2)(@types/babel__core@7.20.5)(@types/node@22.13.2)(@types/react@19.0.1)(jiti@1.21.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.84.0)(styled-components@6.1.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.38.2)(typescript@5.7.3)(yaml@2.7.0)
       sass:
-        specifier: ^1.70.0
+        specifier: ^1.84.0
         version: 1.84.0
       sass-loader:
         specifier: ^16.0.4
@@ -235,7 +236,7 @@ importers:
         specifier: ^2.8.8
         version: 2.8.8
       tailwindcss:
-        specifier: ^3.0.23
+        specifier: 3.4.17
         version: 3.4.17
       typescript:
         specifier: ^5.7.3
@@ -1532,7 +1533,7 @@ packages:
   '@medusajs/ui-preset@2.5.1-preview-20250213060159':
     resolution: {integrity: sha512-7x/+5Iz259IsuVnR0wPseLWPHgoAsn/iygvci+xWfx6o8UozR9guLucXvOhuCcRDbuVqYAXumcoUo3Wl8B+aPQ==}
     peerDependencies:
-      tailwindcss: '>=3.0.0'
+      tailwindcss: 3.4.17
 
   '@medusajs/ui@4.0.6-preview-20250213060159':
     resolution: {integrity: sha512-D2i5XxE4q36AolZ9vvHXrGUVpuuPHzWoy7A3KLTFsU80doGUJdpVgZLUVtgvpFTnTAbkuPo2ZInnXH+pTEZo4w==}
@@ -3730,7 +3731,7 @@ packages:
   '@tailwindcss/forms@0.5.10':
     resolution: {integrity: sha512-utI1ONF6uf/pPNO68kmN1b8rEwNXv3czukalo8VtJH8ksIkZXr3Q3VYudZLkCsDd4Wku120uF02hYK25XGPorw==}
     peerDependencies:
-      tailwindcss: '>=3.0.0 || >= 3.0.0-alpha.1 || >= 4.0.0-alpha.20 || >= 4.0.0-beta.1'
+      tailwindcss: 3.4.17
 
   '@tanstack/react-table@8.20.5':
     resolution: {integrity: sha512-WEHopKw3znbUZ61s9i0+i9g8drmDo6asTWbrQh8Us63DAk/M0FkmIqERew6P71HI75ksZ2Pxyuf4vvKh9rAkiA==}
@@ -6405,7 +6406,7 @@ packages:
       babel-plugin-react-compiler: '*'
       react: ^18.2.0 || 19.0.0-rc-66855b96-20241106 || ^19.0.0
       react-dom: ^18.2.0 || 19.0.0-rc-66855b96-20241106 || ^19.0.0
-      sass: ^1.70.0
+      sass: ^1.84.0
     peerDependenciesMeta:
       '@opentelemetry/api':
         optional: true
@@ -7439,7 +7440,7 @@ packages:
     peerDependencies:
       '@rspack/core': 0.x || 1.x
       node-sass: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0
-      sass: ^1.70.0
+      sass: ^1.84.0
       sass-embedded: '*'
       webpack: ^5
     peerDependenciesMeta:
@@ -7818,7 +7819,7 @@ packages:
   tailwindcss-animate@1.0.7:
     resolution: {integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==}
     peerDependencies:
-      tailwindcss: '>=3.0.0 || insiders'
+      tailwindcss: 3.4.17
 
   tailwindcss-radix@2.9.0:
     resolution: {integrity: sha512-N49SnciSeRgLC+VK+Fu5VULNJIvJUvN7tUKF1kEHPXrS76WAlwrSVthCbJ9NUw0Cj/ptxs73pdVEdosomAN5Lg==}
@@ -8199,7 +8200,7 @@ packages:
       jiti: '>=1.21.0'
       less: '*'
       lightningcss: ^1.21.0
-      sass: ^1.70.0
+      sass: ^1.84.0
       sass-embedded: '*'
       stylus: '*'
       sugarss: '*'
