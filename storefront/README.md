@@ -340,3 +340,15 @@ PS F:\LEROLLDESIGN\000_CLIENTS_PROJECTS\LALUNECURIEUSE\ECOMERCE\2025\Lune-Curieu
  WARN  deprecated @studio-freight/hamo@0.6.33: The '@studio-freight/hamo' package has been renamed to 'hamo'. Please update your dependencies: npm install hamo and visit the documentation: https://www.npmjs.com/package/hamo
  WARN  deprecated @studio-freight/react-lenis@0.0.47: The '@studio-freight/react-lenis' package has been renamed to 'lenis'. Please update your dependencies: npm install lenis and visit the documentation: https://www.npmjs.com/package/lenis
  WARN  deprecated react-instantsearch-hooks-web@6.47.3: package has moved to react-instantsearch
+
+
+pnpm remove react-instantsearch-hooks-web
+pnpm add react-instantsearch@latest
+
+import { InstantSearch } from "react-instantsearch-hooks-web";
+par
+
+tsx
+Copier
+Modifier
+import { InstantSearch } from "react-instantsearch";
