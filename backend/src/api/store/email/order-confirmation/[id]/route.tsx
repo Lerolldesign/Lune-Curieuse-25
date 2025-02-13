@@ -31,14 +31,14 @@ export async function POST(req: MedusaRequest, res: MedusaResponse) {
     // Send email to the customer
     await sendEmail({
       to: order.email,
-      subject: "Thank you for your order",
+      subject: "Merci pour votre commande",
       react: <OrderConfirmation order={order} />,
     });
 
     // Send email to the admin
     await sendEmail({
       to: "commande@lalunecurieuse.com", // Replace with the admin's email address
-      subject: "New Order Received",
+      subject: "Nouvelle commande reçue 🍺",
       react: <AdminOrderNotification order={order} />,
     });
 

@@ -29,7 +29,7 @@ export default function AdminOrderNotification({ order }: { order: OrderDTO }) {
         </Heading>
         <EmailBody
           paragraphs={[
-            "Une nouvelle commande a été passée sur votre boutique en ligne, tu vas popuvoir payer une 🍺 a ta designer préférée . Voici les détails de la commande :",
+            "Une nouvelle commande a été passée sur votre boutique en ligne, tu vas pouvoir payer une 🍺 a ta designer préférée . Voici les détails de la commande :",
           ]}
         />
         <Cart

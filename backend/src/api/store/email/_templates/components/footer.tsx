@@ -23,7 +23,7 @@ export default function Footer() {
             extend: {
               colors: {
                 background: "#FFF6E6",
-                accent: "#FF5227",
+                accent: "#C87E53",
               },
             },
           },
@@ -64,7 +64,7 @@ export default function Footer() {
 
         <Section className="text-center">
           <Text style={footer} className="pb-5">
-            © {year} MUNCHIES
+            © {year} LA LUNE CURIEUSE
           </Text>
         </Section>
       </Tailwind>
