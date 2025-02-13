@@ -66,7 +66,7 @@ const nextConfig = {
   serverRuntimeConfig: {
     port: process.env.PORT || 3000,
   },
-  webpack: (config, { isServer }) => {
+  webpack: (config) => {
     // Find the existing rule that handles SCSS files
     const scssRule = config.module.rules.find(
       (rule) => rule.test && rule.test.toString().includes("scss")
